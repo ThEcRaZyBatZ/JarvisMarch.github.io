@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Jarvis March Visualization</title>
+  <style>
+    body {
+      background-color: black;
+      color: white;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+    }
+    #controls {
+      margin-bottom: 15px;
+    }
+    #userInput {
+      width: 400px;
+      padding: 5px;
+    }
+    button {
+      padding: 6px 12px;
+      margin-left: 5px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1 style="color: white;">JARVIS MARCH</h1>
+  <div id="controls">
+    <input type="text" id="userInput" placeholder="Inputs like (1,2) (2, 3)" />
+    <br>
+    <p style="color: white;">Sample input (1,-9)(2,-3)(-4,5),(22,8)</p>
+    <br>
+    <button onclick="getInput()">Run</button>
+    <button onclick="reloadPage()">Reset</button>
+  </div>
+
+  <canvas id="canvas" width="1300" height="800"></canvas>
+
+  <script src="jarvis.js"></script>
+</body>
+</html>
