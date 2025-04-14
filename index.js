@@ -6,11 +6,13 @@ const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
 const input = document.getElementById('userInput');
 const canvasSize = 500;
-canvas.width = 700;
-canvas.height = 500;
+canvas.width = window.innerWidth - 50;
+canvas.height = window.innerHeight - 100;
+const randomMax=35;
+const randomMin=-35;
 let scale = 5;
 let offsetX = 0;const padding=5;
-let offsetY = 0;
+let offsetY = 0;  
 class A {
   constructor(pointX, pointY) {
     this.pointX = pointX;
@@ -19,6 +21,19 @@ class A {
 }
 function reloadPage() {
   location.reload();
+}
+function randomiseInput(){
+  const selectedInput=document.getElementById('selectedInput');
+  const n=selectedInput.selectedIndex+3;
+  let s="";
+  
+  for(let i=0;i<n;i++){
+    let randomNumberX=(Math.floor(Math.random()*2*randomMax)-randomMax);
+    let randomNumberY=Math.floor(Math.random()*2*randomMax)-randomMax;
+    s+=(`(${randomNumberX},${randomNumberY}) `);
+  }
+  console.log(s.trim());
+  input.value=s.trim();
 }
 function setDimensions() {
   let minX = Infinity, maxX = -Infinity, minY = Infinity, maxY = -Infinity;
@@ -170,7 +185,10 @@ function jarvisMarch() {
     } else {
       if (arePointsEqual(next, start)) {
         hull.push(start);
-        drawLine(current, start);
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        setPoints();
+        drawLineHistory(hull);
+        console.log(hull);
         return;
       }
       drawLine(current, next);
@@ -181,4 +199,3 @@ function jarvisMarch() {
   }
   step();
 }
-
