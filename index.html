@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Jarvis March Visualization</title>
   <style>
+    p{
+      margin-bottom: 2px;
+    }
     body {
       background-color: black;
       color: white;
@@ -24,6 +27,11 @@
       margin-left: 5px;
       cursor: pointer;
     }
+    select{
+      padding: 6px 12px;
+      margin-left: 5px;
+      cursor: pointer;
+    }
   </style>
 </head>
 <body>
@@ -31,14 +39,37 @@
   <div id="controls">
     <input type="text" id="userInput" placeholder="Inputs like (1,2) (2, 3)" />
     <br>
-    <p style="color: white;">Sample input (1,-9)(2,-3)(-4,5),(22,8)</p>
+    <p style="color: white;">Sample input (1,-9)(2,-3)(-4,5),(6,8)</p>
     <br>
     <button onclick="getInput()">Run</button>
     <button onclick="reloadPage()">Reset</button>
+    <button onclick="randomiseInput()">Randomise Input</button>
+    <select id="selectedInput">
+      <option id="s3">
+        3
+      </option>
+      <option id="s4">
+        4
+      </option>
+      <option id="s5">
+        5
+      </option>
+      <option id="s6">
+        6
+      </option>
+      <option id="s7">
+        7
+      </option>
+      <option id="s8">
+        8
+      </option>
+      <option id="s9">
+        9
+      </option>
+    </select>
   </div>
-
   <canvas id="canvas" width="1300" height="800"></canvas>
 
-  <script src="index.js"></script>
+  <script src="jarvis.js"></script>
 </body>
 </html>
